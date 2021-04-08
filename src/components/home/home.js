@@ -38,6 +38,18 @@ const Home = () => {
                 })
         }
     };
+    const DateConverter = (day=0,month=0,year=0) => {
+    var sday = day.toString();
+    var smonth = month.toString();
+    var syear = year.toString();
+    if (sday.length == 1) {
+        sday = '0' + sday;
+    }
+    if (smonth.length == 1) {
+        smonth = '0' + smonth;
+    }
+    return sday+'-'+smonth+'-'+syear
+}
     return (
         <>
             <div className="home-component">
@@ -82,14 +94,17 @@ const Home = () => {
                     {
                          
                                 flightsData.length > 0 ? (
-                                flightsData.map((flight) => {
+                                flightsData.map((flight,i) => {
                             return (
-                                <div className='flight'>
+                                <div className='flight' key={i}>
                                     <div className='flight-image' style={{background:`url(${flight.image})`,height: '200px', width: '200px',backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain', borderRadius: '20px' }}></div>
                                     <div className='flight-info'>
                                         <div className='flight-name'>{flight.name}</div>
                                         <div className='flight-detail'>
                                             {flight.description}
+                                        </div>
+                                        <div className='flight-date'>
+                                            {DateConverter(flight.day,flight.month,flight.year)}
                                         </div>
                                         <div className='flight-price'>
                                             {flight.price} <BiRupee/>

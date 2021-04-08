@@ -1,0 +1,66 @@
+.register-page {
+  min-height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.register-page .register-box {
+  background-color: #eeeeee;
+  border: 1px solid #00000024;
+  min-width: 350px;
+  max-width: 450px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.register-page .register-separator {
+  height: 40px;
+}
+
+.register-page .register-google-login-bth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.register-page .register-google-login {
+  margin-top: 10px;
+}
+
+.register-page .register-btn {
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  background-color: aquamarine;
+  width: 80%;
+  margin: auto;
+  margin-top: 14px;
+  border-radius: 5px;
+  background-color: #2e7d32;
+  color: white;
+  -webkit-box-shadow: 5px 6px 10px #225625;
+          box-shadow: 5px 6px 10px #225625;
+}
+
+.register-page .register-btn:active {
+  -webkit-box-shadow: inset 5px 6px 10px #225625;
+          box-shadow: inset 5px 6px 10px #225625;
+}
+/*# sourceMappingURL=auth.css.map */

@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "register.scss"
+        "package.scss"
     ],
     "names": [],
-    "file": "register.css"
+    "file": "package.css"
 }

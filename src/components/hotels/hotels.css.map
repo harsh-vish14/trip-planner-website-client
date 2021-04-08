@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "login.scss"
+        "hotels.scss"
     ],
     "names": [],
-    "file": "login.css"
+    "file": "hotels.css"
 }

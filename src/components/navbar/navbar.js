@@ -2,16 +2,10 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {auth} from '../../firebase'
+import UserDetails from '../userDetails/userDetails';
 import './navbar.css'
-const Navbar = () => {
-    const [userInfo, setUserInfo] = useState(null);
-    useEffect( async () => {
-        await auth.onAuthStateChanged((userInfo) => {
-            if (userInfo) {
-                console.log(userInfo);
-            }
-        })
-    },[])
+const Navbar = ({userData,setUserData}) => {
+    // const [userInfo, setUserInfo] = useState(null);
 
     return (
         <div className="navbar">
@@ -27,20 +21,23 @@ const Navbar = () => {
                     </NavLink>
                 </div>
                 <div className="link package">
+                    <NavLink to='/hotels' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '500' }} exact>
+                        hotels
+                    </NavLink>
+                </div>
+                <div className="link package">
                     <NavLink to='/package' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '500' }} exact>
                         Package
                     </NavLink>
                 </div>
             </div>
             {
-                userInfo ? (
-                    <div>
-                        {console.log("userInfo")}
-                    </div>
+                userData ? (
+                    <UserDetails userData={userData} setUserData={setUserData}/>
                 ) : (
                     <div className="register-btn">
                         <NavLink to='/register' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '500' }} exact>
-                            Register
+                            New User?
                         </NavLink>
                     </div>
                 )

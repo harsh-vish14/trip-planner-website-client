@@ -109,8 +109,8 @@
 }
 
 .search-planes-btn:hover {
-  -webkit-box-shadow: 6px 6px 7px #120078;
-          box-shadow: 6px 6px 7px #120078;
+  -webkit-box-shadow: 6px 6px 7px #0d014e;
+          box-shadow: 6px 6px 7px #0d014e;
   -webkit-transition: .4s;
   transition: .4s;
 }
