@@ -10,21 +10,37 @@ import { auth } from './firebase';
 
 function App() {
   const [userData, setUserData] = useState(null);
-  useEffect(async() => {
+  useEffect(async () => {
     await auth.onAuthStateChanged((userInfo) => {
       if (userInfo) {
         setUserData(userInfo);
+        fetch('http://127.0.0.1:5000/userLogin',
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              uid: userInfo.uid,
+              name: userInfo.displayName,
+              email: userInfo.email,
+              userPhoto: userInfo.photoURL
+            }),
+            mode: 'cors'
+          }).then((res) => {
+            return res.json()
+          })
+        .then((data)=>{
+          console.log(data)
+        })
         console.log(userInfo);
       }
     })
-  },[userData])
+  }, [userData]);
   return (
     <div className="App">
       <BrowserRouter>
         <NavbarC userData={userData} setUserData={setUserData}/>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home userData={userData}/>
           </Route>
           <Route path="/package">
             <Package />

@@ -138,6 +138,15 @@
       -ms-flex-align: center;
           align-items: center;
   margin: 10px;
+  border: 1px solid #4444444a;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.plains-details-flight .flight:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  border: 2px solid #44444498;
 }
 
 .plains-details-flight .flight .flight-info {

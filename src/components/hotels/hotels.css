@@ -1,1 +1,55 @@
-/* No CSS *//*# sourceMappingURL=hotels.css.map */
+.hotels-page .header {
+  background: url("https://images.unsplash.com/photo-1575310452551-5af1ad4a6dd5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fA%3D%3D&auto=format&fit=crop&w=2600&q=60");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+}
+
+.hotels-page .header-title {
+  font-size: 48px;
+  font-weight: 600;
+  min-width: 37%;
+  max-width: 53%;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.hotels-page .search-bar {
+  width: calc(80% + 10px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.hotels-page .search-bar .search {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: azure;
+  padding: 10px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 160px;
+  height: 45px;
+  font-weight: 500;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.hotels-page .hotels-Title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-left: 30px;
+}
+/*# sourceMappingURL=hotels.css.map */
