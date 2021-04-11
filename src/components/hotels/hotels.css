@@ -52,4 +52,85 @@
   font-weight: 600;
   margin-left: 30px;
 }
+
+.hotel-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
+  border: 1px solid #4444444a;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.hotel-card .hotel-info {
+  width: 100%;
+  margin: 0px 10px;
+}
+
+.hotel-card .hotel-info .hotel-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+.hotel-card .hotel-info .hotel-title .hotel-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+  color: blue;
+  margin-left: 20px;
+}
+
+.hotel-card .hotel-info .hotel-price-and-bth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hotel-card .hotel-info .hotel-price-and-bth .hotel-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  color: green;
+}
+
+.hotel-card .hotel-info .hotel-price-and-bth .hotel-bth {
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 5px 30px;
+}
 /*# sourceMappingURL=hotels.css.map */

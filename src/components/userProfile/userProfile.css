@@ -1,0 +1,92 @@
+.user-details {
+  margin: 20px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-details .user-info {
+  margin-left: 20px;
+}
+
+.user-details .user-info .user-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.user-details .user-info .user-email {
+  font-weight: 600;
+}
+
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.cards .flight-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 20px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 210px;
+}
+
+.cards .flight-details .flights-info {
+  margin: 5px;
+}
+
+.cards .flight-details .flights-info .flight-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cards .flight-details .flights-info .flight-price {
+  color: green;
+}
+
+.cards .flight-details .remove-flight {
+  background-color: #df1616;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin: -7px;
+  margin-top: 6px;
+  color: white;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.StripeCheckout {
+  color: black !important;
+  background-color: green;
+}
+
+.StripeCheckout span {
+  background-image: none !important;
+}
+/*# sourceMappingURL=userProfile.css.map */

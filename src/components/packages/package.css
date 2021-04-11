@@ -1,0 +1,95 @@
+.package .package-header {
+  background: url("https://images.unsplash.com/photo-1552355170-c8337700279c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2051&q=80");
+  min-height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 48px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fcfeff;
+  text-shadow: 0px 0px 20px black;
+}
+
+.package .package-packages .package-title {
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.package-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.package-card {
+  min-width: 300px;
+  max-width: 400px;
+  margin: 10px;
+  border: 1px solid #adadad;
+  border-radius: 12px;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.package-card .carousel {
+  border-radius: 12px;
+  padding: 5px;
+  height: 350px;
+}
+
+.package-card .carousel img {
+  height: 350px;
+}
+
+.package-card .package-name {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 10px;
+}
+
+.package-card .package-information {
+  margin: 0px 10px;
+}
+
+.package-card .package-price {
+  margin: 10px;
+  color: green;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.package-card .package-book-btn {
+  position: absolute;
+  bottom: 0px;
+  padding: 15px;
+  width: 100%;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+}
+/*# sourceMappingURL=package.css.map */

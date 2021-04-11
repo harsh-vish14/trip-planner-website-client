@@ -3,13 +3,15 @@ import NavbarC from './components/navbar/navbar';
 import Home from './components/home/home';
 import Login from './components/auth/login/login';
 import Register from './components/auth/register/register';
-import Package from './components/package/package';
+import Package from './components/packages/package';
 import Hotels from './components/hotels/hotels';
 import { useEffect, useState } from 'react';
 import { auth } from './firebase';
+import User from './components/userProfile/userProfile';
 
 function App() {
   const [userData, setUserData] = useState(null);
+  const [userPresent, setUserPresent] = useState(true);
   useEffect(async () => {
     await auth.onAuthStateChanged((userInfo) => {
       if (userInfo) {
@@ -40,14 +42,15 @@ function App() {
         <NavbarC userData={userData} setUserData={setUserData}/>
         <Switch>
           <Route exact path="/">
-            <Home userData={userData}/>
+            <Home userData={userData} userPresent={userPresent} setUserPresent={setUserPresent}/>
           </Route>
           <Route path="/package">
-            <Package />
+            <Package userData={userData} userPresent={userPresent} setUserPresent={setUserPresent}/>
           </Route>
           <Route path="/hotels">
-            <Hotels />
+            <Hotels userData={userData} userPresent={userPresent} setUserPresent={setUserPresent} />
           </Route>
+          <Route path="/user/:id" component={User} />
           <Route>
             {
               userData ? (

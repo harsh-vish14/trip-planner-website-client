@@ -7,8 +7,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import { Redirect } from 'react-router';
 import FlightCard from '../flight/flight';
-const Home = ({ userData }) => {
-    const [userPresent, setUserPresent] = useState(true);
+const Home = ({ userData,userPresent,setUserPresent }) => {
     const [startDate, setStartDate] = useState(new Date());
     const [amount, setAmount] = useState()
     const [noAmount, setNoAmount] = useState(false)

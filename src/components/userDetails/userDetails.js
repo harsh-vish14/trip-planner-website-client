@@ -19,7 +19,7 @@ const UserDetails = ({ userData,setUserData }) => {
             </div>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style={{textAlign:'center'}}>
                 <li>
-                    <Link class="dropdown-item" to="/profile">
+                    <Link class="dropdown-item" to={`/user/${userData.uid}`}>
                         User Profile
                     </Link>
                 </li>
