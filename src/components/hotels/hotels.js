@@ -2,6 +2,7 @@ import {useState, useEffect}  from 'react'
 import { FaHotel } from 'react-icons/all'
 import { Redirect } from 'react-router';
 import Hotel from '../hotel/hotel'
+import Loading from '../loading/loading';
 import './hotels.css'
 const Hotels = ({ userData,userPresent,setUserPresent }) => {
     const [hotelsData, setHotelsData] = useState([]);
@@ -60,7 +61,7 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
                             return (<Hotel hotel={hotel} key={hotel.id} userData={userData} setUserPresent={setUserPresent} /> )
                         })
                     ): (
-                            <div>Loading....</div>
+                            <Loading/>
                     )
                 }
                     

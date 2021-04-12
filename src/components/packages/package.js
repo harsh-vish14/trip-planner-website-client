@@ -3,6 +3,7 @@ import PackageCard from '../package/packageCard';
 import { Redirect } from 'react-router';
 // import PackageCart from '../package/packageCard';
 import './package.css';
+import Loading from '../loading/loading';
 const Package = ({ userData, userPresent, setUserPresent }) => {
     const [packageData, setPackageData] = useState(null);
     useEffect(async () => {
@@ -28,8 +29,10 @@ const Package = ({ userData, userPresent, setUserPresent }) => {
                         packageData.map((packageCard) => {
                             return(<PackageCard packageCardData={packageCard} key={packageCard.id} userData={userData} setUserPresent={setUserPresent}/>)
                         })
-                    ): (
-                            <div>loading.....</div>
+                    ) : (
+                            <div style={{position: 'relative'}}>
+                            <Loading/>
+                            </div>
                     )}
                 </div>
             </div>

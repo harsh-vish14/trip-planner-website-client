@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { BiRupee } from 'react-icons/all'
 import NumberFormat from 'react-number-format'
 import StripeCheckout from 'react-stripe-checkout'
+import Loading from "../loading/loading"
 import './userProfile.css'
 const User = ({match}) => {
     const {
@@ -67,6 +68,7 @@ const User = ({match}) => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+                setFinalAmount(0);
                 setUserDetails((preve) => {
             return {
                 ...preve,
@@ -225,13 +227,10 @@ const User = ({match}) => {
                         </div>
                     </>
                 ) : (
-                    <div>
-                        Loading....
-                    </div>
+                        <Loading />
                 )
             }
             {console.log(finalAmount)}
-            
         </>
     );
 }
