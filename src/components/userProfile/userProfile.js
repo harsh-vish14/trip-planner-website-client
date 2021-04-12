@@ -12,7 +12,7 @@ const User = ({match}) => {
     var [finalAmount,setFinalAmount] = useState(0);
     useEffect(async () => {
         
-        await fetch(`http://127.0.0.1:5000/user/${process.env.REACT_APP_AUTH_KEY}/${id}`)
+        await fetch(`https://python-flask-api-trip.herokuapp.com/user/${process.env.REACT_APP_AUTH_KEY}/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.amount);
@@ -38,7 +38,7 @@ const User = ({match}) => {
                 [fieldName]: filterArrays
             }
         })
-        await fetch(`http://127.0.0.1:5000/updateUserFields/${process.env.REACT_APP_AUTH_KEY}/remove`,
+        await fetch(`https://python-flask-api-trip.herokuapp.com/updateUserFields/${process.env.REACT_APP_AUTH_KEY}/remove`,
         {
                 method: 'POST',
                 body: JSON.stringify({
@@ -56,7 +56,7 @@ const User = ({match}) => {
     const onToken = async(token)=>{
         console.log('payment is done')
         console.log(token)
-        await fetch(`http://127.0.0.1:5000/paymentDone`,
+        await fetch(`https://python-flask-api-trip.herokuapp.com/paymentDone`,
         {
                 method: 'POST',
                 body: JSON.stringify({

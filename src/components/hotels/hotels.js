@@ -8,7 +8,7 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
     const [hotelsData, setHotelsData] = useState([]);
     const [search, setSearch] = useState('');
     const fetchData = async () => {
-        await fetch('http://127.0.0.1:5000/hotels')
+        await fetch('https://python-flask-api-trip.herokuapp.com/hotels')
             .then((res) => res.json())
             .then((data) => {
                 setHotelsData(data);

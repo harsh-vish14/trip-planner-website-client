@@ -16,7 +16,7 @@ function App() {
     await auth.onAuthStateChanged((userInfo) => {
       if (userInfo) {
         setUserData(userInfo);
-        fetch('http://127.0.0.1:5000/userLogin',
+        fetch('https://python-flask-api-trip.herokuapp.com/userLogin',
           {
             method: 'POST',
             body: JSON.stringify({

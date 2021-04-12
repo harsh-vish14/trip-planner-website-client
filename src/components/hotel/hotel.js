@@ -6,7 +6,7 @@ const Hotel = ({ hotel,userData,setUserPresent }) => {
             setUserPresent(false);
         } else {
             console.log(hotelId);
-            fetch('http://127.0.0.1:5000/addHotels',
+            fetch('https://python-flask-api-trip.herokuapp.com/addHotels',
           {
             method: 'POST',
             body: JSON.stringify({

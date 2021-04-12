@@ -7,7 +7,7 @@ const FlightCard = ({ flight,userData,setUserPresent }) => {
             setUserPresent(false);
         } else {
             console.log(flightId);
-            fetch('http://127.0.0.1:5000/addFlight',
+            fetch('https://python-flask-api-trip.herokuapp.com/addFlight',
           {
             method: 'POST',
             body: JSON.stringify({

@@ -7,7 +7,7 @@ import Loading from '../loading/loading';
 const Package = ({ userData, userPresent, setUserPresent }) => {
     const [packageData, setPackageData] = useState(null);
     useEffect(async () => {
-        await fetch('http://127.0.0.1:5000/packages')
+        await fetch('https://python-flask-api-trip.herokuapp.com/packages')
             .then((res) => res.json())
             .then((data) => {
                 setPackageData(data);

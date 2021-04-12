@@ -6,7 +6,7 @@ const PackageCard = ({ packageCardData,userData,setUserPresent }) => {
             setUserPresent(false);
         } else {
             console.log(packageId);
-            fetch('http://127.0.0.1:5000/addPackage',
+            fetch('https://python-flask-api-trip.herokuapp.com/addPackage',
           {
             method: 'POST',
             body: JSON.stringify({

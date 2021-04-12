@@ -31,7 +31,7 @@ const Home = ({ userData,userPresent,setUserPresent }) => {
         } else {
             setNoAmount(false);
             console.log('loading...');
-            await fetch(`http://127.0.0.1:5000/flightQuery/${amount}/${year}/${month}/${day}`)
+            await fetch(`https://python-flask-api-trip.herokuapp.com/flightQuery/${amount}/${year}/${month}/${day}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setFlightData(data);
