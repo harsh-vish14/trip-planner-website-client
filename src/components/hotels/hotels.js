@@ -53,15 +53,16 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
                 Hotels
             </div>
             <div className='hotels-element'>
-                    {console.table(hotelsData)}
+                    
                 {
-                    hotelsData ? (
+                    hotelsData.length > 0 ? (
                         hotelsData.map((hotel) => {
-                            //(hotel)
                             return (<Hotel hotel={hotel} key={hotel.id} userData={userData} setUserPresent={setUserPresent} /> )
                         })
                     ): (
+                            <div style={{position: 'relative'}}>
                             <Loading/>
+                            </div>
                     )
                 }
                     

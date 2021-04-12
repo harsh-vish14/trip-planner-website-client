@@ -5,7 +5,7 @@ const googleSignIn = async () => {
         .then((res) => {
             return res.user;
         }).catch((err) => {
-            console.error(err)
+            //error(err)
         })
 };
 
@@ -14,7 +14,7 @@ const logOut = async () => {
         .then(() => {
             //('done')
         }).catch((err) => {
-            console.error(err);
+            //error(err);
         })
 };
 

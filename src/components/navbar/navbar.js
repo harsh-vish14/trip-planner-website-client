@@ -16,17 +16,17 @@ const Navbar = ({userData,setUserData}) => {
             </div>
             <div className="navbar-links">
                 <div className="link home">
-                    <NavLink to='/' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '500' }} exact>
+                    <NavLink to='/' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '600' }} exact>
                         Home
                     </NavLink>
                 </div>
                 <div className="link package">
-                    <NavLink to='/hotels' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '500' }} exact>
+                    <NavLink to='/hotels' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '600' }} exact>
                         hotels
                     </NavLink>
                 </div>
                 <div className="link package">
-                    <NavLink to='/package' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '500' }} exact>
+                    <NavLink to='/package' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '600' }} exact>
                         Package
                     </NavLink>
                 </div>
@@ -36,7 +36,7 @@ const Navbar = ({userData,setUserData}) => {
                     <UserDetails userData={userData} setUserData={setUserData}/>
                 ) : (
                     <div className="register-btn">
-                        <NavLink to='/register' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '500' }} exact>
+                        <NavLink to='/register' className="navlink" activeStyle={{ color: 'black', opacity: '1', fontWeight: '600' }} exact>
                             New User?
                         </NavLink>
                     </div>

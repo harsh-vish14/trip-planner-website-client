@@ -38,7 +38,7 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
                 .then((res) => res.json())
                 .then((data) => {
                     setFlightData(data);
-                    console.table(data);
+                    //table(data);
                     //('...done Loading');
                     setIsLoading(false);
                 })
