@@ -12,7 +12,7 @@ const googleSignIn = async () => {
 const logOut = async () => {
     await auth.signOut()
         .then(() => {
-            console.log('done')
+            //('done')
         }).catch((err) => {
             console.error(err);
         })

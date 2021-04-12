@@ -8,6 +8,7 @@ import Hotels from './components/hotels/hotels';
 import { useEffect, useState } from 'react';
 import { auth } from './firebase';
 import User from './components/userProfile/userProfile';
+import Footer from './components/footer/footer';
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -30,9 +31,9 @@ function App() {
             return res.json()
           })
         .then((data)=>{
-          console.log(data)
+          //(data)
         })
-        console.log(userInfo);
+        //(userInfo);
       }
     })
   }, [userData]);
@@ -68,6 +69,7 @@ function App() {
             }
           </Route>
         </Switch>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

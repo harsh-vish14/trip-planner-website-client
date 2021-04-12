@@ -12,7 +12,7 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
             .then((res) => res.json())
             .then((data) => {
                 setHotelsData(data);
-                console.log(data)
+                //(data)
             })
     };
     useEffect(() => {
@@ -21,10 +21,10 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
         }
     },[]);
     const hotelsSearch = () => {
-        console.log(search)
+        //(search)
         if (hotelsData) {
             var filterHotel = hotelsData.filter((hotel) => hotel.name.toLowerCase().includes(search.toLocaleLowerCase()))
-            console.log(filterHotel)
+            //(filterHotel)
             setHotelsData(filterHotel)
         }
         if (search === '') {
@@ -57,7 +57,7 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
                 {
                     hotelsData ? (
                         hotelsData.map((hotel) => {
-                            console.log(hotel)
+                            //(hotel)
                             return (<Hotel hotel={hotel} key={hotel.id} userData={userData} setUserPresent={setUserPresent} /> )
                         })
                     ): (

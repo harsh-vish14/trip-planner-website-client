@@ -2,10 +2,10 @@ import { BiRupee } from 'react-icons/all';
 const PackageCard = ({ packageCardData,userData,setUserPresent }) => {
     const packageSelected = (packageId) => {
         if (!userData) {
-            console.log('user not logged in')
+            //('user not logged in')
             setUserPresent(false);
         } else {
-            console.log(packageId);
+            //(packageId);
             fetch('https://python-flask-api-trip.herokuapp.com/addPackage',
           {
             method: 'POST',
@@ -16,7 +16,7 @@ const PackageCard = ({ packageCardData,userData,setUserPresent }) => {
             mode: 'cors'
                 }).then((res) => res.json())
                 .then((data) => {
-                console.log(data);
+                //(data);
             })
         }
     }

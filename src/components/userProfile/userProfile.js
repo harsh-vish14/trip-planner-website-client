@@ -15,7 +15,7 @@ const User = ({match}) => {
         await fetch(`https://python-flask-api-trip.herokuapp.com/user/${process.env.REACT_APP_AUTH_KEY}/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.amount);
+                //(data.amount);
                 setFinalAmount(data.amount)
                 setUserDetails(data.Data);
                 
@@ -23,7 +23,7 @@ const User = ({match}) => {
     }, [])
     
     const deleteThisData = async (elementId, fieldName) => {
-        console.log(elementId, fieldName);
+        //(elementId, fieldName);
         const selectArray = userDetails[`${fieldName}`]
         var filterArrays = selectArray.filter((element) => {
             if (element.id != elementId) {
@@ -50,12 +50,12 @@ const User = ({match}) => {
             })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                //(data);
             })
     };
     const onToken = async(token)=>{
-        console.log('payment is done')
-        console.log(token)
+        //('payment is done')
+        //(token)
         await fetch(`https://python-flask-api-trip.herokuapp.com/paymentDone`,
         {
                 method: 'POST',
@@ -67,7 +67,7 @@ const User = ({match}) => {
             })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                //(data);
                 setFinalAmount(0);
                 setUserDetails((preve) => {
             return {
@@ -230,7 +230,7 @@ const User = ({match}) => {
                         <Loading />
                 )
             }
-            {console.log(finalAmount)}
+            {/* {//(finalAmount)} */}
         </>
     );
 }

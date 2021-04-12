@@ -7,7 +7,9 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import { Redirect } from 'react-router';
 import FlightCard from '../flight/flight';
-const Home = ({ userData,userPresent,setUserPresent }) => {
+import Loading from '../loading/loading';
+const Home = ({ userData, userPresent, setUserPresent }) => {
+    const [IsLoading,setIsLoading] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
     const [amount, setAmount] = useState()
     const [noAmount, setNoAmount] = useState(false)
@@ -24,19 +26,21 @@ const Home = ({ userData,userPresent,setUserPresent }) => {
         const day = dateConvert[1];
         const month = dateConvert[0];
         const year = dateConvert[2];
-        console.log(amount);
+        //(amount);
         if (amount === 0 || !amount) {
-            console.log('no amomunt')
+            //('no amomunt')
             setNoAmount(true);
         } else {
             setNoAmount(false);
-            console.log('loading...');
+            //('loading...');
+            setIsLoading(true);
             await fetch(`https://python-flask-api-trip.herokuapp.com/flightQuery/${amount}/${year}/${month}/${day}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setFlightData(data);
                     console.table(data);
-                    console.log('...done Loading');
+                    //('...done Loading');
+                    setIsLoading(false);
                 })
         }
     };
@@ -98,7 +102,9 @@ const Home = ({ userData,userPresent,setUserPresent }) => {
                         </div>
                     </div>
                 ) : (
-                    null
+                        <div style={{position: 'relative',height: '100%', display: IsLoading?(''):('none')}}>
+                    <Loading/>
+                        </div>
                 )
             }
         </>

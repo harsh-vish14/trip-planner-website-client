@@ -9,7 +9,7 @@ const UserDetails = ({ userData,setUserData }) => {
             .then(() => {
                 setUserData(null)
             })
-        console.log('logout');
+        //('logout');
     };
 
     return (

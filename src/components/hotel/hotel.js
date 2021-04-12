@@ -2,10 +2,10 @@ import { FaHotel,ImLocation2,BiRupee } from 'react-icons/all'
 const Hotel = ({ hotel,userData,setUserPresent }) => {
     const hotelSelected = (hotelId) => {
         if (!userData) {
-            console.log('user not logged in')
+            //('user not logged in')
             setUserPresent(false);
         } else {
-            console.log(hotelId);
+            //(hotelId);
             fetch('https://python-flask-api-trip.herokuapp.com/addHotels',
           {
             method: 'POST',
@@ -16,7 +16,7 @@ const Hotel = ({ hotel,userData,setUserPresent }) => {
             mode: 'cors'
                 }).then((res) => res.json())
                 .then((data) => {
-                console.log(data);
+                //(data);
             })
         }
     }

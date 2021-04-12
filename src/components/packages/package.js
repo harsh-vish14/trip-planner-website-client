@@ -11,7 +11,7 @@ const Package = ({ userData, userPresent, setUserPresent }) => {
             .then((res) => res.json())
             .then((data) => {
                 setPackageData(data);
-                console.log(data)
+                //(data)
             })
     },[]);
     return (

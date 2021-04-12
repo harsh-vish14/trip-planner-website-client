@@ -3,10 +3,10 @@ import DateConverter from '../../functions/DateConvertor'
 const FlightCard = ({ flight,userData,setUserPresent }) => {
     const flightSelected = (flightId) => {
         if (!userData) {
-            console.log('user not logged in')
+            //('user not logged in')
             setUserPresent(false);
         } else {
-            console.log(flightId);
+            //(flightId);
             fetch('https://python-flask-api-trip.herokuapp.com/addFlight',
           {
             method: 'POST',
@@ -17,7 +17,7 @@ const FlightCard = ({ flight,userData,setUserPresent }) => {
             mode: 'cors'
                 }).then((res) => res.json())
                 .then((data) => {
-                console.log(data);
+                //(data);
             })
         }
     }

@@ -5,7 +5,7 @@ import './google.css'
 const Google = ({setUserData}) => {
     const GoogleBtnClicked = async () => {
         var user = await googleSignIn();
-        console.log(user);
+        //(user);
         if (user) {
             setUserData(user);
         }

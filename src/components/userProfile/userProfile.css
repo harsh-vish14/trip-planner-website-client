@@ -21,6 +21,10 @@
   font-weight: 600;
 }
 
+.user-profile {
+  min-height: 100vh;
+}
+
 .cards {
   display: -webkit-box;
   display: -ms-flexbox;
