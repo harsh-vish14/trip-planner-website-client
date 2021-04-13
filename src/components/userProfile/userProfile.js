@@ -128,6 +128,7 @@ const User = ({match}) => {
                                                                         <div className="flight-name">
                                                                             {flight.name}
                                                                         </div>
+                                                                        <div className='flight-locations'> <ImLocation2 style={{color:'blue'}}/> {flight.from} <BsArrowRight style={{width: "100px" }} /> <ImLocation2 style={{color:'blue'}}/>{flight.to}</div>
                                                                         <div className="flight-price">
                                                                             <NumberFormat value={flight.price} displayType={'text'} thousandSeparator={true} />
                                                                             <BiRupee />
