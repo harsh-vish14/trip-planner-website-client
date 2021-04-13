@@ -24,7 +24,7 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
         to:[]
     })
     useEffect(async () => {
-        await fetch('http://127.0.0.1:5000/flightsLocationOption')
+        await fetch('https://python-flask-api-trip.herokuapp.com/flightsLocationOption')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
@@ -51,7 +51,7 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
                 setNoAmount(false);
                 //('loading...');
                 setIsLoading(true);
-                await fetch(`http://127.0.0.1:5000/flightQuery/${amount}/${year}/${month}/${day}/${locationSelection.from}/${locationSelection.to}`)
+                await fetch(`https://python-flask-api-trip.herokuapp.com/flightQuery/${amount}/${year}/${month}/${day}/${locationSelection.from}/${locationSelection.to}`)
                     .then((res) => res.json())
                     .then((data) => {
                         setFlightData(data);
