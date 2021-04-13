@@ -27,7 +27,6 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
         await fetch('https://python-flask-api-trip.herokuapp.com/flightsLocationOption')
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
                 setSelectOptions(data);
             })
     },[]);
@@ -69,7 +68,6 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
         const value = e.target.value;
         const name = e.target.name;
         if (value != 'From') {
-            console.log("name: " + name + " value: " + value)
             setLocationSelection((preve) => {
                 return {
                     ...preve,
@@ -78,7 +76,8 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
             })
             return
         }
-        console.log('wrong input');
+        setFromNotSelected(false);
+        
     }
     return (
         <>
@@ -138,8 +137,8 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
                                 <div>Loading...</div>
                             )
                         }
-                        {fromNotSelected ? <div style={{ color: 'red' }}>Select the correct value</div> : null}
                     </div>
+                        {fromNotSelected ? <div style={{ color: 'red' }}>Select the correct value</div> : null}
                     <div className='search-planes-btn' onClick={filterFlight}>
                         Search Flights <FaPlaneDeparture />
                     </div>

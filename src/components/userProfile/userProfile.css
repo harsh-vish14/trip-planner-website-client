@@ -79,22 +79,7 @@
   color: white;
 }
 
-.title {
-  font-size: 30px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.StripeCheckout {
-  color: black !important;
-  background-color: green;
-}
-
-.StripeCheckout span {
-  background-image: none !important;
-}
-
-.flight-locations {
+.cards .flight-details .flight-locations {
   font-size: 1rem;
   margin-left: 0px;
   display: -webkit-box;
@@ -110,5 +95,20 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.StripeCheckout {
+  color: black !important;
+  background-color: green;
+}
+
+.StripeCheckout span {
+  background-image: none !important;
 }
 /*# sourceMappingURL=userProfile.css.map */
