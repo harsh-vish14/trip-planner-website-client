@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { BiRupee } from 'react-icons/all'
+import { BiRupee,ImLocation2,BsArrowRight } from 'react-icons/all'
 import NumberFormat from 'react-number-format'
 import StripeCheckout from 'react-stripe-checkout'
 import Loading from "../loading/loading"
