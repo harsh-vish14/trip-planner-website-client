@@ -5,3 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.form-select:focus{
+  box-shadow: none;
+  border: 1px solid #ced4da;
+}

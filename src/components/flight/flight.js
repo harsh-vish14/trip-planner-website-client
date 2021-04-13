@@ -1,4 +1,4 @@
-import { BiRupee } from 'react-icons/all'
+import { BiRupee,ImLocation2,BsArrowRight } from 'react-icons/all'
 import DateConverter from '../../functions/DateConvertor'
 const FlightCard = ({ flight,userData,setUserPresent }) => {
     const flightSelected = (flightId) => {
@@ -25,7 +25,7 @@ const FlightCard = ({ flight,userData,setUserPresent }) => {
         <div className='flight' key={flight.id}>
             <div className='flight-image' style={{ background: `url(${flight.image})`, height: '200px', width: '200px', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain', borderRadius: '20px' }}></div>
             <div className='flight-info'>
-                <div className='flight-name'>{flight.name}</div>
+                <div className='flight-name'>{flight.name} <div className='flight-locations'> <ImLocation2 style={{color:'blue'}}/> {flight.from} <BsArrowRight style={{width: "100px" }} /> <ImLocation2 style={{color:'blue'}}/>{flight.to}</div></div>
                 <div className='flight-detail'>
                     {flight.description}
                 </div>

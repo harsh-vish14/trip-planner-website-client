@@ -100,7 +100,7 @@
   padding: 13px;
   border-radius: 10px;
   position: absolute;
-  bottom: 40px;
+  bottom: -5px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -157,6 +157,20 @@
 .plains-details-flight .flight .flight-info .flight-name {
   font-size: 30px;
   font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.plains-details-flight .flight .flight-info .flight-name .flight-locations {
+  font-size: 16px;
+  margin-left: 30px;
 }
 
 .plains-details-flight .flight .flight-info .flight-price {
@@ -204,5 +218,21 @@
 
 .navlink:hover {
   color: black;
+}
+
+.select-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+select {
+  cursor: pointer;
 }
 /*# sourceMappingURL=home.css.map */

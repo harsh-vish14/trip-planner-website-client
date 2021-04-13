@@ -1,6 +1,6 @@
 // import { Navbar, NavLink } from "react-bootstrap"
-import { FaPlaneDeparture} from 'react-icons/all'
-import { useState,forwardRef } from 'react';
+import { FaPlaneDeparture,BsArrowRight} from 'react-icons/all'
+import { useState,forwardRef, useEffect } from 'react';
 // import DatePicker from 'react-date-picker';
 import './home.css'
 import DatePicker from "react-datepicker"
@@ -14,6 +14,23 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
     const [amount, setAmount] = useState()
     const [noAmount, setNoAmount] = useState(false)
     const [flightsData, setFlightData] = useState(null);
+    const [fromNotSelected, setFromNotSelected] = useState(false);
+    const [locationSelection, setLocationSelection] = useState({
+        from: '',
+        to: ''
+    })
+    const [selectOptions, setSelectOptions] = useState({
+        from: [],
+        to:[]
+    })
+    useEffect(async () => {
+        await fetch('http://127.0.0.1:5000/flightsLocationOption')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                setSelectOptions(data);
+            })
+    },[]);
     const ExampleCustomInput = forwardRef(
         ({ value, onClick }, ref) => (
             <button className="example-custom-input" onClick={onClick} ref={ref}>
@@ -28,25 +45,44 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
         const year = dateConvert[2];
         //(amount);
         if (amount === 0 || !amount) {
-            //('no amomunt')
             setNoAmount(true);
         } else {
-            setNoAmount(false);
-            //('loading...');
-            setIsLoading(true);
-            await fetch(`https://python-flask-api-trip.herokuapp.com/flightQuery/${amount}/${year}/${month}/${day}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    setFlightData(data);
-                    //table(data);
-                    //('...done Loading');
-                    setIsLoading(false);
-                })
+            if (locationSelection.from != '') {
+                setNoAmount(false);
+                //('loading...');
+                setIsLoading(true);
+                await fetch(`http://127.0.0.1:5000/flightQuery/${amount}/${year}/${month}/${day}/${locationSelection.from}/${locationSelection.to}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        setFlightData(data);
+                        //table(data);
+                        //('...done Loading');
+                        setIsLoading(false);
+                    })
+                setFromNotSelected(false);
+            } else {
+                setFromNotSelected(true);
+            }
         }
     };
+    const LocationChanged = (e) => {
+        const value = e.target.value;
+        const name = e.target.name;
+        if (value != 'From') {
+            console.log("name: " + name + " value: " + value)
+            setLocationSelection((preve) => {
+                return {
+                    ...preve,
+                    [name]: value === 'To'?(''):(value)
+                }
+            })
+            return
+        }
+        console.log('wrong input');
+    }
     return (
         <>
-            {userPresent?(null):(<Redirect to="/register" />)}
+            {userPresent ? (null) : (<Redirect to="/register" />)}
             <div className="home-component">
                 <div className="header-content">
                     <div className="title">
@@ -68,12 +104,42 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
                         </div>
                         <div>
                             <div className="form-floating mb-3">
-                                <input type="number" className="form-control" id="floatingInput" placeholder="amount" value={amount} onChange={(e) => { setAmount(e.target.value) }} />
+                                <input type="number" className="form-control" id="floatingInput" placeholder="amount" value={amount} onChange={(e) => { setAmount(e.target.value); setNoAmount(false);}} />
                                 <label htmlFor="floatingInput">Amount Rs</label>
                             </div>
                         </div>
                     </div>
                     {noAmount ? <div style={{ color: 'red' }}>pls provide the amount</div> : null}
+                    <div className='select-options'>
+                        
+                        {
+                            selectOptions ? (
+                                <>
+                                    <select class="form-select" aria-label="Default select" onChange={LocationChanged} name='from' value={locationSelection.from}>
+                                        <option selected>From</option>
+                                        {
+                                            selectOptions.from.map((option) => {
+                                                return <option key={option} value={option}>{option}</option>
+                                            })
+                                        }
+                                       
+                                    </select>
+                                    <BsArrowRight style={{ fontSize: "25px", width: "100px" }} />
+                                    <select class="form-select" aria-label="Default select" onChange={LocationChanged} name="to" value={locationSelection.to}>
+                                        <option selected>To</option>
+                                        {
+                                            selectOptions.to.map((option) => {
+                                                return <option key={option} value={option}>{option}</option>
+                                            })
+                                        }
+                                    </select>
+                                </>
+                            ) : (
+                                <div>Loading...</div>
+                            )
+                        }
+                        {fromNotSelected ? <div style={{ color: 'red' }}>Select the correct value</div> : null}
+                    </div>
                     <div className='search-planes-btn' onClick={filterFlight}>
                         Search Flights <FaPlaneDeparture />
                     </div>
@@ -102,9 +168,9 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
                         </div>
                     </div>
                 ) : (
-                        <div style={{position: 'relative',height: '100%', display: IsLoading?(''):('none')}}>
-                    <Loading/>
-                        </div>
+                    <div style={{ position: 'relative', height: '100%', display: IsLoading ? ('') : ('none') }}>
+                        <Loading />
+                    </div>
                 )
             }
         </>
