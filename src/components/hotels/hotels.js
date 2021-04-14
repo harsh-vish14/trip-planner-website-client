@@ -4,7 +4,8 @@ import { Redirect } from 'react-router';
 import Hotel from '../hotel/hotel'
 import Loading from '../loading/loading';
 import './hotels.css'
-const Hotels = ({ userData,userPresent,setUserPresent }) => {
+const Hotels = ({ userData }) => {
+    
     const [hotelsData, setHotelsData] = useState([]);
     const [search, setSearch] = useState('');
     const fetchData = async () => {
@@ -39,13 +40,13 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
     }
     return (
         <div className="hotels-page">
-            {userPresent?(null):(<Redirect to="/register" />)}
+            
             <div className="header">
                 <div className="header-title">
                     Find best Hotel for your Vacation
                 </div>
                 <div className='search-bar'>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Hotel Name" autoComplete={false} onChange={handleChanged} />
+                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Hotel Name" onChange={handleChanged} />
                     <div className='search' onClick={hotelsSearch}>Filter Hotel <FaHotel style={{marginLeft:'10px'}}/></div>
                 </div>
             </div>
@@ -57,7 +58,7 @@ const Hotels = ({ userData,userPresent,setUserPresent }) => {
                 {
                     hotelsData.length > 0 ? (
                         hotelsData.map((hotel) => {
-                            return (<Hotel hotel={hotel} key={hotel.id} userData={userData} setUserPresent={setUserPresent} /> )
+                            return (<Hotel hotel={hotel} key={hotel.id} userData={userData} /> )
                         })
                     ): (
                             <div style={{position: 'relative'}}>

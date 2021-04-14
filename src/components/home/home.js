@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Redirect } from 'react-router';
 import FlightCard from '../flight/flight';
 import Loading from '../loading/loading';
-const Home = ({ userData, userPresent, setUserPresent }) => {
+const Home = ({ userData}) => {
     const [IsLoading,setIsLoading] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
     const [amount, setAmount] = useState()
@@ -48,14 +48,11 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
         } else {
             if (locationSelection.from != '') {
                 setNoAmount(false);
-                //('loading...');
                 setIsLoading(true);
                 await fetch(`https://python-flask-api-trip.herokuapp.com/flightQuery/${amount}/${year}/${month}/${day}/${locationSelection.from}/${locationSelection.to}`)
                     .then((res) => res.json())
                     .then((data) => {
                         setFlightData(data);
-                        //table(data);
-                        //('...done Loading');
                         setIsLoading(false);
                     })
                 setFromNotSelected(false);
@@ -81,7 +78,7 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
     }
     return (
         <>
-            {userPresent ? (null) : (<Redirect to="/register" />)}
+            
             <div className="home-component">
                 <div className="header-content">
                     <div className="title">
@@ -156,7 +153,7 @@ const Home = ({ userData, userPresent, setUserPresent }) => {
                                 flightsData.length > 0 ? (
                                     flightsData.map((flight) => {
                                         return (
-                                            <FlightCard flight={flight} userData={userData} setUserPresent={setUserPresent} />
+                                            <FlightCard flight={flight} userData={userData} />
                                         )
                                     })
                                 ) : (

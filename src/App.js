@@ -12,30 +12,34 @@ import Footer from './components/footer/footer';
 
 function App() {
   const [userData, setUserData] = useState(null);
-  const [userPresent, setUserPresent] = useState(true);
+  // const [userPresent, setUserPresent] = useState(true);
   useEffect(async () => {
-    await auth.onAuthStateChanged((userInfo) => {
-      if (userInfo) {
-        setUserData(userInfo);
-        fetch('https://python-flask-api-trip.herokuapp.com/userLogin',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              uid: userInfo.uid,
-              name: userInfo.displayName,
-              email: userInfo.email,
-              userPhoto: userInfo.photoURL
-            }),
-            mode: 'cors'
-          }).then((res) => {
-            return res.json()
+    if (!userData) {
+      await auth.onAuthStateChanged((userInfo) => {
+        if (userInfo) {
+          setUserData(userInfo);
+          fetch('https://python-flask-api-trip.herokuapp.com/userLogin',
+            { 
+              method: 'POST',
+              body: JSON.stringify({
+                uid: userInfo.uid,
+                name: userInfo.displayName,
+                email: userInfo.email,
+                userPhoto: userInfo.photoURL
+              }),
+              mode: 'cors'
+            }).then((res) => {
+              return res.json()
+            })
+            .then((data) => {
+              // setUserPresent(true);
+            })
+            .catch((err) => {
           })
-        .then((data)=>{
-          //(data)
-        })
-        //(userInfo);
-      }
-    })
+        }
+      })
+    }
+    // }
   }, [userData]);
   return (
     <div className="App">
@@ -43,26 +47,26 @@ function App() {
         <NavbarC userData={userData} setUserData={setUserData}/>
         <Switch>
           <Route exact path="/">
-            <Home userData={userData} userPresent={userPresent} setUserPresent={setUserPresent}/>
+            <Home userData={userData} />
           </Route>
           <Route path="/package">
-            <Package userData={userData} userPresent={userPresent} setUserPresent={setUserPresent}/>
+            <Package userData={userData} />
           </Route>
           <Route path="/hotels">
-            <Hotels userData={userData} userPresent={userPresent} setUserPresent={setUserPresent} />
+            <Hotels userData={userData} />
           </Route>
           <Route path="/user/:id" component={User} />
           <Route>
             {
               userData ? (
-                  <Redirect to='/' />
+                <Redirect to='/' />
               ) : (
                 <>
                   <Route path="/register">
                     <Register setUserData={setUserData} />
                   </Route>
                   <Route path="/login">
-                    <Login setUserData={setUserData} />
+                      <Login setUserData={setUserData}  />
                   </Route>
                 </>
               )

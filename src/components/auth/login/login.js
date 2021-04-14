@@ -1,10 +1,13 @@
-import { useState } from "react"
+import { useState,useContext  } from "react"
 import { Link } from "react-router-dom"
 import { auth } from "../../../firebase"
 import Google from "../../google/google"
+import {UserContext} from '../../../context/context'
+import { Redirect } from "react-router-dom"
 import '../auth.css'
 
-const Login = ({ setUserData }) => {
+const Login = ({ setUserData}) => {
+    const [userPresent, setuserPresent] = useContext(UserContext).user;
     const [nouser, setnouser] = useState(false);
     const [emailerror, setemailerror] = useState(false);
      const [userRegisterFormData, setUserRegisterFormData] = useState({
@@ -27,22 +30,27 @@ const Login = ({ setUserData }) => {
         await auth.signInWithEmailAndPassword(userRegisterFormData.email, userRegisterFormData.password)
             .then((res) => {
                 setUserData(res.user);
+                // GettingUserData();
+                // window.location.reload(false);
+                
                 setUserRegisterFormData({
-                 email: '',
-        password:'',
-            })
+                    email: '',
+                    password: '',
+                })
+                setuserPresent(true);
             })
             .catch((err) => {
-             if (err.message === 'The email address is badly formatted.') {
-                // TODO:add bad email err
+                
+                if (err.message === 'The email address is badly formatted.') {
+                    // TODO:add bad email err
                     setemailerror(true);
                 }
                 if (err.message === 'There is no user record corresponding to this identifier. The user may have been deleted.' || err.message === 'The password is invalid or the user does not have a password.') {
                     // TODO:add no user
                     setnouser(true);
                 }
-        })
-    }
+            })
+    };
     return (
         <div className="register-page">
             <div className="register-box">
