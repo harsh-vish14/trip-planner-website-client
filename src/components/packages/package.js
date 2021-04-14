@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 // import PackageCart from '../package/packageCard';
 import './package.css';
 import Loading from '../loading/loading';
-const Package = ({ userData, userPresent, setUserPresent }) => {
+const Package = ({ userData }) => {
     const [packageData, setPackageData] = useState(null);
     useEffect(async () => {
         await fetch('https://python-flask-api-trip.herokuapp.com/packages')
@@ -16,7 +16,7 @@ const Package = ({ userData, userPresent, setUserPresent }) => {
     },[]);
     return (
         <div className="package">
-            {userPresent?(null):(<Redirect to="/register" />)}
+            
             <div className="package-header">
                 Trending destinations
             </div>
@@ -27,7 +27,7 @@ const Package = ({ userData, userPresent, setUserPresent }) => {
                 <div className="package-cards">
                     {packageData ? (
                         packageData.map((packageCard) => {
-                            return(<PackageCard packageCardData={packageCard} key={packageCard.id} userData={userData} setUserPresent={setUserPresent}/>)
+                            return(<PackageCard packageCardData={packageCard} key={packageCard.id} userData={userData}/>)
                         })
                     ) : (
                             <div style={{position: 'relative'}}>

@@ -1,9 +1,16 @@
 import { BiRupee } from 'react-icons/all';
-const PackageCard = ({ packageCardData,userData,setUserPresent }) => {
+import { useContext, useEffect } from 'react'
+import { Redirect } from 'react-router';
+import {UserContext} from '../../context/context'
+const PackageCard = ({ packageCardData,userData}) => {
+    const [userPresent, setuserPresent] = useContext(UserContext).user;
+    useEffect(() => {
+        setuserPresent(true);
+    }, []);
     const packageSelected = (packageId) => {
         if (!userData) {
             //('user not logged in')
-            setUserPresent(false);
+            setuserPresent(false);
         } else {
             //(packageId);
             fetch('https://python-flask-api-trip.herokuapp.com/addPackage',
@@ -17,12 +24,13 @@ const PackageCard = ({ packageCardData,userData,setUserPresent }) => {
                 }).then((res) => res.json())
                 .then((data) => {
                 //(data);
+                    setuserPresent(true);
             })
         }
     }
     return (
         <div className="package-card">
-        
+        {userPresent?null:<Redirect to="/register"/>}
             <div id={`carouselExampleFade${packageCardData.id}`} className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div className="carousel-item active">

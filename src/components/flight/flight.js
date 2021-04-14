@@ -1,28 +1,37 @@
-import { BiRupee,ImLocation2,BsArrowRight } from 'react-icons/all'
+import { BiRupee, ImLocation2, BsArrowRight } from 'react-icons/all'
+import { Redirect } from 'react-router';
+import { useContext, useEffect } from 'react'
+import {UserContext} from '../../context/context'
 import DateConverter from '../../functions/DateConvertor'
-const FlightCard = ({ flight,userData,setUserPresent }) => {
+const FlightCard = ({ flight, userData }) => {
+    const [userPresent, setuserPresent] = useContext(UserContext).user;
+    useEffect(() => {
+        setuserPresent(true);
+    },[])
     const flightSelected = (flightId) => {
         if (!userData) {
             //('user not logged in')
-            setUserPresent(false);
+            setuserPresent(false);
         } else {
             //(flightId);
             fetch('https://python-flask-api-trip.herokuapp.com/addFlight',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              uid: userData.uid,
-              flightId
-            }),
-            mode: 'cors'
+                {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        uid: userData.uid,
+                        flightId
+                    }),
+                    mode: 'cors'
                 }).then((res) => res.json())
                 .then((data) => {
-                //(data);
-            })
+                    //(data);
+                    setuserPresent(true);
+                })
         }
-    }
+    };
     return (
         <div className='flight' key={flight.id}>
+            {userPresent?null:<Redirect to="/register"/>}
             <div className='flight-image' style={{ background: `url(${flight.image})`, height: '200px', width: '200px', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain', borderRadius: '20px' }}></div>
             <div className='flight-info'>
                 <div className='flight-name'>{flight.name} <div className='flight-locations'> <ImLocation2 style={{color:'blue'}}/> {flight.from} <BsArrowRight style={{width: "100px" }} /> <ImLocation2 style={{color:'blue'}}/>{flight.to}</div></div>

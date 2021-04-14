@@ -1,9 +1,12 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState,useContext } from "react"
+import { Link, Redirect } from "react-router-dom"
 import { auth } from "../../../firebase"
+// import { useContext } from 'react'
+import {UserContext} from '../../../context/context'
 import Google from "../../google/google"
 import '../auth.css'
 const Register = ({ setUserData }) => {
+    const [userPresent, setuserPresent] = useContext(UserContext).user;
     const [emailerror, setemailerror] = useState(false);
     const [email, setemail] = useState(false);
     const [smallPassword, setSmallPassword] = useState(false);
@@ -25,14 +28,16 @@ const Register = ({ setUserData }) => {
         })
     }
     const register = async () => {
+        
         await auth.createUserWithEmailAndPassword(userRegisterFormData.email, userRegisterFormData.password)
-        .then((res) => {
-            setUserData(res.user);
-            setUserRegisterFormData({
-                 email: '',
-        password:'',
-            })
-            })
+            .then((res) => {
+                setUserData(res.user);
+                setUserRegisterFormData({
+                    email: '',
+                    password: '',
+                })
+                setuserPresent(true);
+            })            
             .catch((err) => {
                 if (err.message == 'The email address is badly formatted.') {
                     setemailerror(true);
@@ -44,9 +49,10 @@ const Register = ({ setUserData }) => {
                     setSmallPassword(true)
                 }
             })
-    }
+    };
     return (
         <div className="register-page">
+            
             <div className="register-box">
                 <div style={{ fontSize: "25px", marginBottom: '10px' }}>Register Page</div>
                 {email ? (<div style={{ color:'red'}}>User Already exits</div>):null}
