@@ -1,0 +1,42 @@
+.register-page {
+    min-height:85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .register-box{
+        background-color: #eeeeee;
+        border: 1px solid #00000024;
+        min-width: 350px;
+        max-width:450px;
+        padding: 30px;
+        border-radius: 10px;
+    }
+    .register-separator{
+        height:40px;
+    }
+    .register-google-login-bth{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .register-google-login{
+        margin-top:10px;
+    }
+    .register-btn{
+        cursor: pointer;
+        text-align: center;
+        padding: 10px;
+        background-color: aquamarine;
+        width: 80%;
+        margin: auto;
+        margin-top: 14px;
+        border-radius: 5px;
+        background-color: #2e7d32;
+        color: white;
+        box-shadow: 5px 6px 10px #225625;
+        &:active{
+            box-shadow: inset 5px 6px 10px #225625;
+        }
+    }
+}

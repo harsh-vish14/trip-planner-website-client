@@ -1,0 +1,15 @@
+.dropdown-menu[data-bs-popper] {
+    margin-top: 25px;
+}
+.user-dropDown{
+    cursor: pointer;
+}
+.user-image{
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+    .user-name{
+        display:none;
+    }
+}
