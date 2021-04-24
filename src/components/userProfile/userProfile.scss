@@ -1,0 +1,77 @@
+.user-details{
+    margin: 20px 30px;
+    display: flex;
+    align-items: center;
+    // min-height: 100vh;
+    .user-info{
+        margin-left: 20px;
+        .user-name{
+            font-size:30px;
+            font-weight: 600;
+        }
+        .user-email{
+            font-weight: 600;
+        }
+    }
+}
+.user-profile{
+    min-height: 100vh;
+}
+.cards{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .flight-details{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 20px;
+        padding: 5px;
+        border: 1px solid black;
+        border-radius:20px;
+        width: 210px;
+        .flights-info{
+            margin: 5px;
+            .flight-name{
+                font-size:1.25rem;
+                font-weight: 600;
+            }
+            .flight-price{
+                color:green;
+            }
+        }
+        .remove-flight{
+            background-color: rgb(223, 22, 22);
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            margin: -7px;
+            margin-top: 6px;
+            color: white;
+        }
+        .flight-locations {
+            font-size: 1rem;
+            margin-left: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}
+.title{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+.StripeCheckout{
+    color: black !important;
+    background-color: green;
+    // background-image:none;
+    span{
+
+        background-image: none !important;
+    }
+}

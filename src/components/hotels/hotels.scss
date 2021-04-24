@@ -1,0 +1,89 @@
+.hotels-page{
+    .header{
+        background: url('https://images.unsplash.com/photo-1575310452551-5af1ad4a6dd5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fA%3D%3D&auto=format&fit=crop&w=2600&q=60');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height:80vh;
+    }
+    .header-title{
+        font-size: 48px;
+        font-weight: 600;
+        min-width: 37%;
+        max-width: 53%;
+        margin: auto;
+        padding-top: 30px;
+    }
+    .search-bar{
+        width: calc(80% + 10px);
+        display: flex;
+        margin: auto;
+        margin-top: 100px;
+        .search{
+            width: fit-content;
+            background-color: azure;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            min-width: 160px;
+            height: 45px;
+            font-weight:500;
+            justify-content:center;
+            align-items:center;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    }
+    .hotels-Title{
+        font-size:40px;
+        font-weight: 600;
+        margin-left: 30px;
+    }
+}
+.hotel-card{
+    display:flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid #4444444a;
+    transition: .1s;
+    .hotel-info{
+        width:100%;
+        margin: 0px 10px;
+        .hotel-title{
+            display: flex;
+            font-size:1.875rem;
+            font-weight: 600;
+            .hotel-location{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size:1rem;
+                color: blue;
+                margin-left: 20px;
+            }
+        }
+        .hotel-price-and-bth{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .hotel-price{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                color: green;
+            }
+            .hotel-bth{
+                cursor: pointer;
+                background-color: green;
+                color: white;
+                padding: 10px;
+                font-size: 15px;
+                border-radius: 10px;
+                margin: 5px 30px;
+            }
+        }
+    }
+}

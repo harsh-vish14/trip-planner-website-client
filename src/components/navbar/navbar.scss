@@ -1,0 +1,27 @@
+.navlink {
+    text-decoration: none;
+
+}
+
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    padding:20px 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    .navbar-logo{
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: black;
+        .navlink{
+            color:#1b2021;
+        }
+    }
+    .navbar-links{
+        display:flex;
+        div{
+            margin: 0px 10px;
+            font-size: 1.125rem;
+        }
+    }
+}
